@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IMforVPP (work in progress)</title>
+
+  <link rel="stylesheet" href="./css/materialize.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+  <div class="content">
+
+
+
+    <div class="row">
+
+      <nav>
+        <div class="nav-wrapper blue darken-3">
+          <a href="#" class="brand-logo">IMforVPP <span class="wip">(Work in progress)</span></a>
+        </div>
+      </nav> <br>
+
+      <div class="container z-depth-2 size">
+        <div class="row">
+          <!-- tabs nav -->
+          <div class="col s12 z-depth-2  top-bg">
+            <ul class="tabs top-bg">
+              <li class="tab"><a href="#tab1">Dashboard</a></li>
+              <li class="tab"><a href="#tab2" class="">Producatori</a></li>
+              <li class="tab"><a href="#tab3" class="active">Parcuri</a></li>
+              <li class="tab"><a href="#tab4">Ordine dispecer</a></li>
+              <li class="tab"><a href="#tab5">Stare centrala</a></li>
+              <li class="tab"><a href="#tab6">Piata Tranzactionare</a></li>
+              <li class="tab"><a href="#tab7">Meteo</a></li>
+              <li class="tab"><a href="#tab8">Administrare</a></li>
+            </ul>
+          </div>
+
+          <!-- dashboard -->
+          <div id="tab1" class="col s12 tab-content">
+
+            <div class="row">
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="myChart" width="400" height="300"></canvas>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="carbune" width="400" height="136"></canvas>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="nuclear" width="400" height="136"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="gaze" width="400" height="142"></canvas>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="hidro" width="400" height="142"></canvas>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="eolian" width="400" height="142"></canvas>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="fotovoltaic" width="400" height="142"></canvas>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="biomasa" width="400" height="142"></canvas>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="box z-depth-1">
+                  <canvas id="biogaz" width="400" height="142"></canvas>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <!-- producatori -->
+          <div id="tab2" class="col s12 tab-content">
+
+            <!-- adauga producator -->
+            <div id="modal-producatori" class="modal">
+              <div class="modal-content">
+
+                <h4>Producator nou</h4>
+                <form action="" id="adauga-producator"> <br>
+                  <p>Date Companie</p>
+                  <input type="text" id="mod-prod-nume" placeholder="Nume Companie">
+                  <input type="text" name="" id="mod-prod-cui" placeholder="CUI">
+                  <input type="text" name="" id="mod-prod-nr-reg" placeholder="Nr. Inregistrare registrul comertului">
+                  <br>
+                  <input type="text" name="" id="mod-prod-adresa" placeholder="Adresa">
+                  <input type="text" name="" id="mod-prod-eic" placeholder="Cod EIC">
+                  <br>
+                  <p>Date Contractuale</p>
+                  <input type="text" id="mod-prod-nr-contract" placeholder="Nr. Contract">
+                  <input type="text" id="mod-prod-data-semnare" placeholder="Data Semnare">
+                  <input type="text" id="mod-prod-data-vigoare" placeholder="Data Vigoare">
+                  <input type="text" id="mod-prod-data-incetare" placeholder="Data Incetare">
+                  <input type="text" id="mod-prod-valoare" placeholder="Valoare estimative">
+                  <input type="text" id="mod-prod-email" placeholder="Email">
+                  <input type="text" id="mod-prod-telefon" placeholder="Telefon">
+
+                  <input type="submit" placeholder="Submit" class="modal-close waves-effect waves-green btn">
+
+                </form>
+              </div>
+
+            </div>
+            <!-- end modal -->
+
+            <div class="alert">
+              <p>producator adaugat</p>
+            </div>
+
+            <a class="waves-effect waves-light btn spacing modal-trigger" href="#modal-producatori"><i class="material-icons right">add</i>adauga
+              Producator</a>
+
+
+            <ul class="collapsible prod-list">
+            </ul>
+          </div>
+
+          <!-- parcuri -->
+          <div id="tab3" class="col s12 tab-content">
+
+            <div class="row">
+
+              <div class="col s2">
+                <div class="v-tab">
+                  <div class="box z-depth-2 parc-prod">
+                    <button class="tablinks" onclick="openCity(event, 'Producator1')" id="defaultOpen">Producator 1</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s9 list-parc">
+
+                <div id="Producator1" class="tabcontent spacing">
+                  <div class="box z-depth-1">
+                    <h3>Producator 1</h3> <br>
+
+                    <div class="row parc-row">
+
+                      <ul class="col s4 collection">
+                        <h5>Parc 1</h5>
+                        <li class="collection-item">Nume parc</li>
+                        <li class="collection-item ext-list">
+                          Surse de productie
+                          <span>Carbune</span>
+                          <span>Eolian</span>
+                          <span>Nuclear</span>
+                        </li>
+                        <li class="collection-item">Cod producator transelectrica</li>
+                        <li class="collection-item">Adresa</li>
+                        <li class="collection-item">Putere instalata totala </li>
+                        <li class="collection-item">Putere maxima debitata </li>
+                        <li class="collection-item">Putere aprobata ATR</li>
+                        <li class="collection-item">Capacitate acumulatori</li>
+                        <li class="collection-item">Observatii</li>
+                      </ul>
+
+                    </div>
+
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Adauga
+                      parc</a>
+                  </div>
+                </div>
+
+
+
+                <div id="Producator3" class="tabcontent spacing">
+                  <div class="box z-depth-1">
+                    <h3>Producator 3</h3> <br>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Adauga
+                      parc</a>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h4>Parc nou</h4>
+                <form action=""> <br>
+                  <p>Caracteristici Generale</p>
+                  <input type="text" placeholder="Denumirea parcului de productie">
+                  <div class="input-field col s12">
+                    <select>
+                      <option value="1" selected>VPP 1</option>
+                      <option value="2">VPP 2</option>
+                      <option value="3">VPP 3</option>
+                    </select>
+                    <label>Alege VPP</label>
+                  </div>
+                  <input type="text" name="" id="" placeholder="Cod Producator">
+                  <input type="text" name="" id="" placeholder="Adresa"> <br>
+                  <p>Surse de productie</p> <br>
+                  <div class="row">
+                    <div class="col s3">
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Carbune</span>
+                      </label> <br>
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Nuclear</span>
+                      </label>
+                    </div>
+                    <div class="col s3">
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Gaze Naturale</span>
+                      </label> <br>
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Hidro</span>
+                      </label>
+                    </div>
+                    <div class="col s3">
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Eolian</span>
+                      </label> <br>
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Fotovoltaic</span>
+                      </label>
+                    </div>
+                    <div class="col s3">
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Biomasa</span>
+                      </label> <br>
+                      <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Biogaz</span>
+                      </label>
+                    </div>
+                  </div> <br>
+
+                  <p>Caracteristici electrice</p>
+                  <input type="text" placeholder="Putere instalata totala (MW)">
+                  <input type="text" placeholder="Putere maxima debitata (MW)">
+                  <input type="text" placeholder="Putere aprobata ATR (MVA)">
+                  <input type="text" placeholder="Capacitate acumulatori (kVAR)">
+                  <input type="text" placeholder="Observatii">
+
+                </form>
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Adauga</a>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div id="tab4" class="col s12 tab-content">
+            <table class="ordineDisp">
+              <thead>
+                <tr>
+                  <th>VPP</th>
+                  <th>Data inregistrarii</th>
+                  <th>Aplicat in data de</th>
+                  <th>Inceput</th>
+                  <th>Sfarsit</th>
+                  <th>Putere debitata</th>
+                </tr>
+              </thead>
+
+              <tbody class="box z-depth-1">
+                <tr class="">
+                  <td>VPP1</td>
+                  <td>01.12.2018</td>
+                  <td>02.12.2018</td>
+                  <td>08:00</td>
+                  <td>16:00</td>
+                  <td>50</td>
+                </tr>
+                <tr class="">
+                  <td>VPP2</td>
+                  <td>01.12.2018</td>
+                  <td>02.12.2018</td>
+                  <td>08:00</td>
+                  <td>16:00</td>
+                  <td>50</td>
+                </tr>
+                <tr class="">
+                  <td>VPP3</td>
+                  <td>01.12.2018</td>
+                  <td>02.12.2018</td>
+                  <td>08:00</td>
+                  <td>16:00</td>
+                  <td>50</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- stare centrala -->
+          <div id="tab5" class="col s12 tab-content">
+
+
+            <ul class="collapsible">
+
+              <li>
+                <div class="collapsible-header">
+                  <i class="fas fa-briefcase"></i>VPP 1
+                </div>
+
+                <div class="collapsible-body">
+
+                  <div class="row">
+
+                    <div class="col s6">
+                      <div class="box z-depth-1">
+                        <canvas id="totalVPP" width="400" height="200"></canvas>
+                      </div>
+                    </div>
+
+                    <div class="col s6">
+                      <div class="box z-depth-1">
+                        <canvas id="parcuri" width="400" height="200"></canvas>
+                      </div>
+                    </div>
+
+                    <div class="col s12">
+                      <div class="box z-depth-1">
+                        <canvas id="surse" width="400" height="100"></canvas>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="collapsible-header">
+                  <i class="fas fa-briefcase"></i>VPP 2
+                </div>
+                <div class="collapsible-body">
+                </div>
+              </li>
+
+              <li>
+                <div class="collapsible-header">
+                  <i class="fas fa-briefcase"></i>VPP 3
+                </div>
+                <div class="collapsible-body">
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div id="tab6" class="col s12 tab-content">
+            <table class="box z-depth-1">
+              <thead>
+                <tr>
+                  <th>VPP</th>
+                  <th>Carbune</th>
+                  <th>Nuclear</th>
+                  <th>Gaze Naturare</th>
+                  <th>Hidro</th>
+                  <th>Eolian</th>
+                  <th>Fotovoltaic</th>
+                  <th>Biomasa</th>
+                  <th>Biogaz</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>1</td>
+                <td>1000</td>
+                <td>800</td>
+                <td>300</td>
+                <td>500</td>
+                <td>200</td>
+                <td>50</td>
+                <td>100</td>
+                <td>80</td>
+                <td>3030</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>1000</td>
+                <td>800</td>
+                <td>300</td>
+                <td>500</td>
+                <td>200</td>
+                <td>50</td>
+                <td>100</td>
+                <td>80</td>
+                <td>3030</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>1000</td>
+                <td>800</td>
+                <td>300</td>
+                <td>500</td>
+                <td>200</td>
+                <td>50</td>
+                <td>100</td>
+                <td>80</td>
+                <td>3030</td>
+              </tr>
+            </table>
+            <a class="waves-effect waves-light btn">Genereaza prognoza</a>
+            <a class="waves-effect waves-light btn">Sterge prognoza</a>
+            <a class="waves-effect waves-light btn">Genereaza XML</a>
+          </div>
+
+          <div id="tab7" class="col s12 tab-content">info meteo</div>
+
+          <div id="tab8" class="col s12 tab-content">
+
+            <div class="row">
+              <div class="box z-depth-2">
+                <p>Centrale VPP</p> <br>
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal-vpp"><i class="material-icons right">add</i>Adauga
+                  VPP</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="box z-depth-2">
+                <p>Definire useri</p> <br>
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal-user"><i class="material-icons right">add</i>Adauga
+                  user</a>
+              </div>
+            </div>
+
+            <!-- user modal Structure -->
+            <div id="modal-user" class="modal">
+              <div class="modal-content">
+                <h4>User nou</h4>
+                <form action=""> <br>
+                  <input type="text" placeholder="Username">
+                  <input type="password" placeholder="Password">
+                  <input type="text" placeholder="Nume">
+                  <input type="text" placeholder="Prenume">
+                </form>
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Adauga</a>
+              </div>
+            </div>
+
+            <!-- vpp modal Structure -->
+            <div id="modal-vpp" class="modal">
+              <div class="modal-content">
+                <h4>VPP nou</h4>
+                <form action=""> <br>
+                  <input type="text" placeholder="Denumire">
+                  <input type="text" placeholder="Cod EIC">
+                </form>
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Adauga</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+
+  <script src="js/Chart.bundle.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/graphs.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/inner.js"></script>
+
+</body>
+
+</html>
