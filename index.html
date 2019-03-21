@@ -35,9 +35,9 @@
           <!-- tabs nav -->
           <div class="col s12 z-depth-2  top-bg">
             <ul class="tabs top-bg">
-              <li class="tab"><a href="#tab1">Dashboard</a></li>
+              <li class="tab"><a href="#tab1" class="active">Dashboard</a></li>
               <li class="tab"><a href="#tab2" class="">Producatori</a></li>
-              <li class="tab"><a href="#tab3" class="active">Parcuri</a></li>
+              <li class="tab"><a href="#tab3" class="">Parcuri</a></li>
               <li class="tab"><a href="#tab4">Ordine dispecer</a></li>
               <li class="tab"><a href="#tab5">Stare centrala</a></li>
               <li class="tab"><a href="#tab6">Piata Tranzactionare</a></li>
@@ -130,7 +130,7 @@
                   <input type="text" id="mod-prod-email" placeholder="Email">
                   <input type="text" id="mod-prod-telefon" placeholder="Telefon">
 
-                  <input type="submit" placeholder="Submit" class="modal-close waves-effect waves-green btn">
+                  <input type="submit" placeholder="Submit" class="modal-close waves-effect waves-green">
 
                 </form>
               </div>
@@ -163,47 +163,55 @@
                 </div>
               </div>
 
-              <div class="col s9 list-parc">
+              <div class="col s9">
 
-                <div id="Producator1" class="tabcontent spacing">
-                  <div class="box z-depth-1">
-                    <h3>Producator 1</h3> <br>
+                <div class="list-parc">
+                  <!-- <div id="Producator1" class="tabcontent spacing">
+                    <div class="box z-depth-1">
+                      <h3>Producator 1</h3> <br>
 
-                    <div class="row parc-row">
+                      <div class="row parc-row">
 
-                      <ul class="col s4 collection">
-                        <h5>Parc 1</h5>
-                        <li class="collection-item">Nume parc</li>
-                        <li class="collection-item ext-list">
-                          Surse de productie
-                          <span>Carbune</span>
-                          <span>Eolian</span>
-                          <span>Nuclear</span>
-                        </li>
-                        <li class="collection-item">Cod producator transelectrica</li>
-                        <li class="collection-item">Adresa</li>
-                        <li class="collection-item">Putere instalata totala </li>
-                        <li class="collection-item">Putere maxima debitata </li>
-                        <li class="collection-item">Putere aprobata ATR</li>
-                        <li class="collection-item">Capacitate acumulatori</li>
-                        <li class="collection-item">Observatii</li>
-                      </ul>
+                        <ul class="col s4 collection">
+                          <h5>Parc 1</h5>
+                          <li class="collection-item">Nume parc</li>
+                          <li class="collection-item ext-list">
+                            Surse de productie
+                            <span>Carbune</span>
+                            <span>Eolian</span>
+                            <span>Nuclear</span>
+                          </li>
+                          <li class="collection-item">Cod producator transelectrica</li>
+                          <li class="collection-item">Adresa</li>
+                          <li class="collection-item">Putere instalata totala </li>
+                          <li class="collection-item">Putere maxima debitata </li>
+                          <li class="collection-item">Putere aprobata ATR</li>
+                          <li class="collection-item">Capacitate acumulatori</li>
+                          <li class="collection-item">Observatii</li>
+                        </ul>
 
+                      </div>
+
+                      <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Adauga
+                        parc</a>
                     </div>
+                  </div> -->
 
-                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Adauga
-                      parc</a>
+
+
+                  <!-- <div id="Producator3" class="tabcontent spacing">
+                    <div class="box z-depth-1">
+                      <h3>Producator 3</h3> <br>
+                      <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Adauga
+                        parc</a>
+                    </div> -->
                   </div>
+
                 </div>
 
-
-
-                <div id="Producator3" class="tabcontent spacing">
-                  <div class="box z-depth-1">
-                    <h3>Producator 3</h3> <br>
-                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Adauga
-                      parc</a>
-                  </div>
+                <div class="col">
+                  <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Adauga
+                    parc</a>
                 </div>
 
               </div>
@@ -214,23 +222,25 @@
             <div id="modal1" class="modal">
               <div class="modal-content">
                 <h4>Parc nou</h4>
-                <form action=""> <br>
+                <form action="" id="adauga-parc"> <br>
                   <p>Caracteristici Generale</p>
-                  <input type="text" placeholder="Denumirea parcului de productie">
-                  <div class="input-field col s12">
-                    <select>
-                      <option value="1" selected>VPP 1</option>
-                      <option value="2">VPP 2</option>
-                      <option value="3">VPP 3</option>
+                  <input type="text" placeholder="Denumirea parcului de productie" id="mod-parc-nume">
+                  <div class="1input-field col s12">
+                    <select id="mod-parc-prod">
+                      <!-- <option value="1">Producator 1</option>
+                      <option value="2">Producator 2</option>
+                      <option value="3">Producator 3</option> -->
                     </select>
-                    <label>Alege VPP</label>
+                    
+                    <label>Alege Producator</label>
                   </div>
-                  <input type="text" name="" id="" placeholder="Cod Producator">
-                  <input type="text" name="" id="" placeholder="Adresa"> <br>
+                  <input type="text" name="" id="mod-parc-codProd" placeholder="Cod Producator">
+                  <input type="text" name="" id="mod-parc-adresa" placeholder="Adresa"> <br>
                   <p>Surse de productie</p> <br>
                   <div class="row">
                     <div class="col s3">
                       <label>
+                        <!--not now-->
                         <input type="checkbox" class="filled-in" />
                         <span>Carbune</span>
                       </label> <br>
@@ -272,18 +282,18 @@
                   </div> <br>
 
                   <p>Caracteristici electrice</p>
-                  <input type="text" placeholder="Putere instalata totala (MW)">
-                  <input type="text" placeholder="Putere maxima debitata (MW)">
-                  <input type="text" placeholder="Putere aprobata ATR (MVA)">
-                  <input type="text" placeholder="Capacitate acumulatori (kVAR)">
-                  <input type="text" placeholder="Observatii">
-
+                  <input type="text" placeholder="Putere instalata totala (MW)" id="mod-parc-pit">
+                  <input type="text" placeholder="Putere maxima debitata (MW)" id="mod-parc-pmd">
+                  <input type="text" placeholder="Putere aprobata ATR (MVA)" id="mod-parc-paATR">
+                  <input type="text" placeholder="Capacitate acumulatori (kVAR)" id="mod-parc-ca">
+                  <input type="text" placeholder="Observatii" id="mod-parc-obs">
+                  <div class="modal-footer">
+                    <input type="submit" class="modal-close waves-effect waves-green right" value="Submit">
+                  </div>
                 </form>
               </div>
 
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Adauga</a>
-              </div>
+
             </div>
 
 

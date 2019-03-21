@@ -224,3 +224,9 @@ label span{
   font-weight: 700;
   margin-left: 10px;
 }
+
+@media only screen and (max-width: 1600px) {
+  .container.size {
+    width: 90%;
+  }
+}

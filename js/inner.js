@@ -27,7 +27,7 @@ function openCity(evt, cityName) {
 // Click on the first button at parc
 setTimeout(function () {
   document.querySelector('.parc-prod button:nth-child(1)').click();
-}, 900);
+}, 1500);
 
 
 
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var instances = M.Modal.init(elems, options);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, options);
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   var elems = document.querySelectorAll('select');
+//   var instances = M.FormSelect.init(elems, options);
+// });
 
